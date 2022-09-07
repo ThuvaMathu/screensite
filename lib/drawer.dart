@@ -4,6 +4,18 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 class AppDrawer extends ConsumerWidget {
   const AppDrawer({Key? key}) : super(key: key);
 
+  String getCurrentRouteName(context) {
+    String currentRouteName = '';
+    Navigator.popUntil(context, (route) {
+      print('current rout1: ${route.settings.name}');
+      if (route.settings.name != null) {
+        currentRouteName = route.settings.name!;
+      }
+      return true;
+    });
+    return currentRouteName;
+  }
+  
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Drawer(
