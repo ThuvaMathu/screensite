@@ -20,9 +20,7 @@ class SearchPage extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     double screensize = MediaQuery.of(context).size.width;
     return Scaffold(
-        appBar: MediaQuery.of(context).size.width < 600
-            ? AppBar(title: Text(""))
-            : MyAppBar.getBar(context, ref),
+        appBar: MyAppBar.getBar(context, ref),
         drawer: MediaQuery.of(context).size.width < 600 ? AppDrawer() : null,
         body: Container(
             alignment: Alignment.topLeft,

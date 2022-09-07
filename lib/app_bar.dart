@@ -14,39 +14,43 @@ class MyAppBar {
     return AppBar(
       //automaticallyImplyLeading: false,
       leadingWidth: 80,
-      leading: Padding(
-        padding: EdgeInsets.all(12),
-        child: Image.asset(
-          "../assets/amlcloudlogodark_removebg_crop.png",
-        ),
-      ),
-      title: Align(
-          alignment: Alignment.centerLeft,
-          child: SizedBox(
-              width: 300,
-              child: TabBar(
-                tabs: _tabs
-                    .map((t) => Tab(
-                        iconMargin: EdgeInsets.all(0),
-                        child:
-                            // GestureDetector(
-                            //     behavior: HitTestBehavior.translucent,
-                            //onTap: () => navigatePage(text, context),
-                            //child:
-                            Text(t.toUpperCase(),
-                                overflow: TextOverflow.fade,
-                                softWrap: false,
-                                style: TextStyle(
-                                    color:
-                                        // Theme.of(context).brightness == Brightness.light
-                                        //     ? Color(DARK_GREY)
-                                        //:
-                                        Colors.white))))
-                    .toList(),
-                onTap: (index) {
-                  Navigator.of(context).pushNamed(_tabs[index]);
-                },
-              ))),
+      leading: MediaQuery.of(context).size.width > 600
+          ? Padding(
+              padding: EdgeInsets.all(12),
+              child: Image.asset(
+                "../assets/amlcloudlogodark_removebg_crop.png",
+              ),
+            )
+          : null,
+      title: MediaQuery.of(context).size.width > 600
+          ? Align(
+              alignment: Alignment.centerLeft,
+              child: SizedBox(
+                  width: 300,
+                  child: TabBar(
+                    tabs: _tabs
+                        .map((t) => Tab(
+                            iconMargin: EdgeInsets.all(0),
+                            child:
+                                // GestureDetector(
+                                //     behavior: HitTestBehavior.translucent,
+                                //onTap: () => navigatePage(text, context),
+                                //child:
+                                Text(t.toUpperCase(),
+                                    overflow: TextOverflow.fade,
+                                    softWrap: false,
+                                    style: TextStyle(
+                                        color:
+                                            // Theme.of(context).brightness == Brightness.light
+                                            //     ? Color(DARK_GREY)
+                                            //:
+                                            Colors.white))))
+                        .toList(),
+                    onTap: (index) {
+                      Navigator.of(context).pushNamed(_tabs[index]);
+                    },
+                  )))
+          : null,
       actions: [
         ThemeIconButton(),
         IconButton(

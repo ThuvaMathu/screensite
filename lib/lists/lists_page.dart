@@ -16,9 +16,7 @@ class ListsPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-        appBar: MediaQuery.of(context).size.width < 600
-            ? AppBar(title: Text(""))
-            : MyAppBar.getBar(context, ref),
+        appBar: MyAppBar.getBar(context, ref),
         drawer: MediaQuery.of(context).size.width < 600 ? AppDrawer() : null,
         //appBar: MyAppBar.getBar(context, ref),
         body: Container(

@@ -7,11 +7,8 @@ class AppDrawer extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Drawer(
-      // Add a ListView to the drawer. This ensures the user can scroll
-      // through the options in the drawer if there isn't enough vertical
-      // space to fit everything.
+   
       child: ListView(
-        // Important: Remove any padding from the ListView.
         padding: EdgeInsets.zero,
         children: [
           DrawerHeader(
@@ -30,14 +27,12 @@ class AppDrawer extends ConsumerWidget {
             title: const Text('Search'),
             onTap: () {
               Navigator.of(context).pushNamed('search');
-              //Navigator.pop(context);
             },
           ),
           ListTile(
             title: const Text('Lists'),
             onTap: () {
               Navigator.of(context).pushNamed('lists');
-              //Navigator.pop(context);
             },
           ),
         ],
