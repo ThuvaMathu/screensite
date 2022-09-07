@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:screensite/app_bar.dart';
+import 'package:screensite/drawer.dart';
 import 'package:screensite/search/search_details.dart';
 import 'package:screensite/search/search_list.dart';
 import 'package:screensite/state/generic_state_notifier.dart';
@@ -17,8 +18,12 @@ class SearchPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    double screensize = MediaQuery.of(context).size.width;
     return Scaffold(
-        appBar: MyAppBar.getBar(context, ref),
+        appBar: MediaQuery.of(context).size.width < 600
+            ? AppBar(title: Text(""))
+            : MyAppBar.getBar(context, ref),
+        drawer: MediaQuery.of(context).size.width < 600 ? AppDrawer() : null,
         body: Container(
             alignment: Alignment.topLeft,
             child: Row(

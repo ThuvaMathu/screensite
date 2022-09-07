@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:screensite/drawer.dart';
 import 'package:screensite/main.dart';
 import 'package:screensite/state/theme_state_notifier.dart';
 import 'package:screensite/search/search_page.dart';
@@ -11,7 +12,14 @@ class MyAppBar {
 
   static PreferredSizeWidget getBar(BuildContext context, WidgetRef ref) {
     return AppBar(
-      automaticallyImplyLeading: false,
+      //automaticallyImplyLeading: false,
+      leadingWidth: 80,
+      leading: Padding(
+        padding: EdgeInsets.all(12),
+        child: Image.asset(
+          "../assets/amlcloudlogodark_removebg_crop.png",
+        ),
+      ),
       title: Align(
           alignment: Alignment.centerLeft,
           child: SizedBox(
